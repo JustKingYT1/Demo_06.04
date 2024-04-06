@@ -1,0 +1,42 @@
+from src.server.service import RouterManager
+from src.server.database import database_models, pydantic_models
+
+
+routers = (
+    RouterManager(object_name='user', power_level=1, 
+                  database_model=database_models.User, 
+                  pydantic_model=pydantic_models.User, 
+                  prefix='/user', tags=['Users']),
+    RouterManager(object_name='post', power_level=1,
+                  database_model=database_models.Post,
+                  pydantic_model=pydantic_models.Post,
+                  prefix='/post', tags=['Posts']),
+    RouterManager(object_name='pathient', power_level=0,
+                  database_model=database_models.Pathient,
+                  pydantic_model=pydantic_models.Pathient,
+                  prefix='/pathient', tags=['Pathients']),
+    RouterManager(object_name='doctor', power_level=0,
+                  database_model=database_models.Doctor,
+                  pydantic_model=pydantic_models.Doctor,
+                  prefix='/doctor', tags=['Doctors']),
+    RouterManager(object_name='event', power_level=0,
+                  database_model=database_models.Event,
+                  pydantic_model=pydantic_models.Event,
+                  prefix='/event', tags=['Events']),
+    RouterManager(object_name='cart', power_level=0,
+                  database_model=database_models.Cart,
+                  pydantic_model=pydantic_models.Cart,
+                  prefix='/cart', tags=['Carts']),
+    RouterManager(object_name='polis', power_level=0,
+                  database_model=database_models.Polis,
+                  pydantic_model=pydantic_models.Polis,
+                  prefix='/polis', tags=['Polises']),
+    RouterManager(object_name='documentation', power_level=0,
+                  database_model=database_models.Documentation,
+                  pydantic_model=pydantic_models.Documentation,
+                  prefix='/documentation', tags=['Documentation']),
+    RouterManager(object_name='specialization', power_level=0,
+                  database_model=database_models.Specialization,
+                  pydantic_model=pydantic_models.Specialization,
+                  prefix='/specialization', tags=['Specializations'])
+)
